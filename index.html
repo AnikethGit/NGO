@@ -3,28 +3,173 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NGO - Home</title>
-    <link rel="stylesheet" href="css/styles.css">
+    <title>Sai Seva Foundation - Transforming Lives Together</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header>
-        <div class="logo">Spiritual NGO</div>
-        <div class="tagline">Helping People in Need</div>
-    </header>
-    <nav>
-        <a href="index.html">Home</a>
-        <a href="about.html">About Us</a>
-        <a href="services.html">Services</a>
-        <a href="contact.html">Contact</a>
-        <a href="donate.html">Donate</a>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <img src="images/logo.png" alt="Sai Seva Foundation">
+                <span>Sai Seva Foundation</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="donate.html">Donate</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="login.html" class="login-btn">Login</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
     </nav>
-    <div class="hero">
-        <h2>Welcome to Spiritual NGO</h2>
-        <p>We are dedicated to providing spiritual guidance and support to those in need. Our mission is to spread love, compassion, and positivity.</p>
-        <a href="donate.html" class="cta-button">Donate Now</a>
-    </div>
-    <footer>
-        <p>&copy; 2025 Spiritual NGO. All rights reserved.</p>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Transforming Lives Through Service</h1>
+            <p>Join us in our mission to serve humanity and create positive change in communities across India</p>
+            <div class="hero-buttons">
+                <a href="donate.html" class="btn-primary">Donate Now</a>
+                <a href="services.html" class="btn-secondary">Our Services</a>
+            </div>
+        </div>
+        <div class="hero-stats">
+            <div class="stat">
+                <span class="stat-number" data-target="10000">0</span>
+                <span class="stat-label">Lives Touched</span>
+            </div>
+            <div class="stat">
+                <span class="stat-number" data-target="500">0</span>
+                <span class="stat-label">Volunteers</span>
+            </div>
+            <div class="stat">
+                <span class="stat-number" data-target="50">0</span>
+                <span class="stat-label">Projects</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Preview -->
+    <section class="services-preview">
+        <div class="container">
+            <h2>Our Core Services</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <img src="images/poor-feeding.jpg" alt="Poor Feeding">
+                    <h3>Poor Feeding Programs</h3>
+                    <p>Providing nutritious meals to underprivileged communities in Ghanagapur and Shirdi</p>
+                </div>
+                <div class="service-card">
+                    <img src="images/education.jpg" alt="Education">
+                    <h3>Educational Assistance</h3>
+                    <p>Supporting education through scholarships, books, and learning materials</p>
+                </div>
+                <div class="service-card">
+                    <img src="images/medical-camp.jpg" alt="Medical Camp">
+                    <h3>Free Medical Camps</h3>
+                    <p>Organizing health camps and distributing free medicines to those in need</p>
+                </div>
+                <div class="service-card">
+                    <img src="images/disaster-relief.jpg" alt="Disaster Relief">
+                    <h3>Disaster Relief</h3>
+                    <p>Immediate assistance during natural calamities and emergency situations</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Impact Section -->
+    <section class="impact-section">
+        <div class="container">
+            <h2>Our Impact</h2>
+            <div class="impact-grid">
+                <div class="impact-item">
+                    <i class="fas fa-utensils"></i>
+                    <h3>50,000+</h3>
+                    <p>Meals Served</p>
+                </div>
+                <div class="impact-item">
+                    <i class="fas fa-graduation-cap"></i>
+                    <h3>1,000+</h3>
+                    <p>Students Supported</p>
+                </div>
+                <div class="impact-item">
+                    <i class="fas fa-heart"></i>
+                    <h3>5,000+</h3>
+                    <p>Medical Treatments</p>
+                </div>
+                <div class="impact-item">
+                    <i class="fas fa-hands-helping"></i>
+                    <h3>25+</h3>
+                    <p>Communities Served</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Donation CTA -->
+    <section class="donation-cta">
+        <div class="container">
+            <h2>Make a Difference Today</h2>
+            <p>Your contribution can transform lives and bring hope to those who need it most</p>
+            <a href="donate.html" class="btn-primary">Donate Now</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Sai Seva Foundation</h3>
+                    <p>Dedicated to serving humanity and creating positive change in communities</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="donate.html">Donate</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact Info</h4>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <span>+91 12345 67890</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <span>info@saisevafoundation.org</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Shirdi, Maharashtra, India</span>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Sai Seva Foundation. All rights reserved.</p>
+            </div>
+        </div>
     </footer>
+
+    <script src="js/main.js"></script>
 </body>
 </html>

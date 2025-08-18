@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - Sai Seva Foundation</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="sidebar-header">
+                <h3>Admin Panel</h3>
+            </div>
+            <ul class="sidebar-menu">
+                <li class="active"><a href="#dashboard" data-section="dashboard"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
+                <li><a href="#donations" data-section="donations"><i class="fas fa-hand-holding-heart"></i> Donations</a></li>
+                <li><a href="#volunteers" data-section="volunteers"><i class="fas fa-users"></i> Volunteers</a></li>
+                <li><a href="#projects" data-section="projects"><i class="fas fa-project-diagram"></i> Projects</a></li>
+                <li><a href="#events" data-section="events"><i class="fas fa-calendar"></i> Events</a></li>
+                <li><a href="#reports" data-section="reports"><i class="fas fa-chart-bar"></i> Reports</a></li>
+                <li><a href="#users" data-section="users"><i class="fas fa-user-friends"></i> Users</a></li>
+                <li><a href="#settings" data-section="settings"><i class="fas fa-cog"></i> Settings</a></li>
+            </ul>
+            <div class="sidebar-footer">
+                <a href="index.html" class="logout-btn"><i class="fas fa-sign-out-alt"></i> Logout</a>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Header -->
+            <div class="dashboard-header">
+                <h1>Admin Dashboard</h1>
+                <div class="user-info">
+                    <span>Welcome, Admin</span>
+                    <img src="images/admin-avatar.png" alt="Admin" class="user-avatar">
+                </div>
+            </div>
+
+            <!-- Dashboard Section -->
+            <div class="content-section active" id="dashboard-section">
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-hand-holding-heart"></i>
+                        </div>
+                        <div class="stat-content">
+                            <h3 id="totalDonations">₹0</h3>
+                            <p>Total Donations</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <div class="stat-content">
+                            <h3 id="totalVolunteers">0</h3>
+                            <p>Active Volunteers</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-project-diagram"></i>
+                        </div>
+                        <div class="stat-content">
+                            <h3 id="activeProjects">0</h3>
+                            <p>Active Projects</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-calendar"></i>
+                        </div>
+                        <div class="stat-content">
+                            <h3 id="upcomingEvents">0</h3>
+                            <p>Upcoming Events</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dashboard-widgets">
+                    <div class="widget">
+                        <h3>Recent Donations</h3>
+                        <div class="widget-content" id="recentDonationsWidget">
+                            <!-- Dynamic content -->
+                        </div>
+                    </div>
+                    <div class="widget">
+                        <h3>Active Projects</h3>
+                        <div class="widget-content" id="activeProjectsWidget">
+                            <!-- Dynamic content -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Donations Section -->
+            <div class="content-section" id="donations-section">
+                <div class="section-header">
+                    <h2>Donation Management</h2>
+                    <button class="btn-primary" id="addDonationBtn">Add Donation</button>
+                </div>
+                <div class="filters">
+                    <input type="date" id="dateFilter" placeholder="Filter by date">
+                    <select id="causeFilter">
+                        <option value="">All Causes</option>
+                        <option value="poor-feeding">Poor Feeding</option>
+                        <option value="education">Education</option>
+                        <option value="medical">Medical</option>
+                        <option value="disaster">Disaster Relief</option>
+                    </select>
+                    <button class="btn-secondary" id="exportBtn">Export</button>
+                </div>
+                <div class="table-container">
+                    <table class="data-table" id="donationsTable">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Donor Name</th>
+                                <th>Amount</th>
+                                <th>Cause</th>
+                                <th>Date</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Dynamic content -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Volunteers Section -->
+            <div class="content-section" id="volunteers-section">
+                <div class="section-header">
+                    <h2>Volunteer Management</h2>
+                    <button class="btn-primary" id="addVolunteerBtn">Add Volunteer</button>
+                </div>
+                <div class="volunteer-grid" id="volunteerGrid">
+                    <!-- Dynamic content -->
+                </div>
+            </div>
+
+            <!-- Projects Section -->
+            <div class="content-section" id="projects-section">
+                <div class="section-header">
+                    <h2>Project Management</h2>
+                    <button class="btn-primary" id="addProjectBtn">Create Project</button>
+                </div>
+                <div class="projects-grid" id="projectsGrid">
+                    <!-- Dynamic content -->
+                </div>
+            </div>
+
+            <!-- Events Section -->
+            <div class="content-section" id="events-section">
+                <div class="section-header">
+                    <h2>Event Management</h2>
+                    <button class="btn-primary" id="addEventBtn">Create Event</button>
+                </div>
+                <div class="events-calendar" id="eventsCalendar">
+                    <!-- Calendar widget will be implemented here -->
+                </div>
+                <div class="events-list" id="eventsList">
+                    <!-- Dynamic content -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal for forms -->
+    <div class="modal" id="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div id="modalContent">
+                <!-- Dynamic modal content -->
+            </div>
+        </div>
+    </div>
+
+    <script src="js/admin.js"></script>
+</body>
+</html>

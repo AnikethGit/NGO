@@ -3,28 +3,76 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NGO - About Us</title>
-    <link rel="stylesheet" href="css/styles.css">
+    <title>About Us - Sai Seva Foundation</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
 </head>
 <body>
-    <header>
-        <div class="logo">Spiritual NGO</div>
-        <div class="tagline">Helping People in Need</div>
-    </header>
-    <nav>
-        <a href="index.html">Home</a>
-        <a href="about.html">About Us</a>
-        <a href="services.html">Services</a>
-        <a href="contact.html">Contact</a>
-        <a href="donate.html">Donate</a>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <img src="images/logo.png" alt="Sai Seva Foundation">
+                <span>Sai Seva Foundation</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html" class="active">About</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="donate.html">Donate</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="login.html">Login</a></li>
+            </ul>
+        </div>
     </nav>
-    <div class="container">
-        <h2>About Us</h2>
-        <p>Founded with the belief that everyone deserves peace and spiritual well-being, we strive to make a difference in the lives of others. Our team of dedicated volunteers and spiritual leaders work tirelessly to provide support and guidance to those in need.</p>
-        <img src="https://via.placeholder.com/800x400?text=About+Us" alt="About Us Image" class="full-width-image">
-    </div>
-    <footer>
-        <p>&copy; 2025 Spiritual NGO. All rights reserved.</p>
+
+    <!-- About Hero -->
+    <section class="about-hero">
+        <div class="container">
+            <h1>About Sai Seva Foundation</h1>
+            <p>Dedicated to serving humanity with compassion and commitment</p>
+        </div>
+    </section>
+
+    <!-- About Content -->
+    <section class="about-content">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-text">
+                    <h2>Our Mission</h2>
+                    <p>Sai Seva Foundation is committed to serving humanity by addressing the basic needs of the underprivileged and creating sustainable change in communities. Inspired by the teachings of Sai Baba, we believe in the principle of "Serve All, Love All."</p>
+                    
+                    <h2>Our Vision</h2>
+                    <p>To create a world where every individual has access to basic necessities like food, education, healthcare, and dignity. We envision communities where compassion, service, and human values flourish.</p>
+                    
+                    <h2>Our Values</h2>
+                    <ul class="values-list">
+                        <li><i class="fas fa-heart"></i> Compassion and Empathy</li>
+                        <li><i class="fas fa-hands-helping"></i> Selfless Service</li>
+                        <li><i class="fas fa-balance-scale"></i> Transparency and Accountability</li>
+                        <li><i class="fas fa-users"></i> Community Empowerment</li>
+                        <li><i class="fas fa-leaf"></i> Sustainable Development</li>
+                    </ul>
+                </div>
+                <div class="about-image">
+                    <img src="images/about-us.jpg" alt="About Sai Seva Foundation">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Sai Seva Foundation</h3>
+                    <p>Dedicated to serving humanity and creating positive change in communities</p>
+                </div>
+            </div>
+        </div>
     </footer>
+
+    <script src="js/main.js"></script>
 </body>
 </html>

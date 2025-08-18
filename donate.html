@@ -3,87 +3,226 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NGO - Donate</title>
-    <link rel="stylesheet" href="css/styles.css">
+    <title>Donate - Sai Seva Foundation</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
 </head>
 <body>
-    <header>
-        <div class="logo">Spiritual NGO</div>
-        <div class="tagline">Helping People in Need</div>
-    </header>
-    <nav>
-        <a href="index.html">Home</a>
-        <a href="about.html">About Us</a>
-        <a href="services.html">Services</a>
-        <a href="contact.html">Contact</a>
-        <a href="donate.html">Donate</a>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <img src="images/logo.png" alt="Sai Seva Foundation">
+                <span>Sai Seva Foundation</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="donate.html" class="active">Donate</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="login.html">Login</a></li>
+            </ul>
+        </div>
     </nav>
-    <div class="container">
-        <h2>Make a Donation</h2>
-        <p>Your donation will help us continue our mission to provide spiritual guidance and support to those in need.</p>
-        <form class="donation-form" id="donationForm">
-            <input type="text" id="name" name="name" placeholder="Your Name" required>
-            <input type="email" id="email" name="email" placeholder="Your Email" required>
-            <input type="number" id="amount" name="amount" placeholder="Donation Amount" required>
-            <button type="submit">Donate Now</button>
-        </form>
-    </div>
-    <footer>
-        <p>&copy; 2025 Spiritual NGO. All rights reserved.</p>
+
+    <!-- Donation Hero -->
+    <section class="donation-hero">
+        <div class="container">
+            <h1>Make a Difference Today</h1>
+            <p>Your generous contribution helps us continue our mission to serve those in need</p>
+        </div>
+    </section>
+
+    <!-- Donation Form Section -->
+    <section class="donation-section">
+        <div class="container">
+            <div class="donation-grid">
+                <!-- Donation Form -->
+                <div class="donation-form-container">
+                    <h2>Choose Your Donation</h2>
+                    <form id="donationForm" class="donation-form">
+                        <div class="donation-causes">
+                            <h3>Select a Cause</h3>
+                            <div class="cause-options">
+                                <label class="cause-option">
+                                    <input type="radio" name="cause" value="poor-feeding" checked>
+                                    <span>Poor Feeding Programs</span>
+                                </label>
+                                <label class="cause-option">
+                                    <input type="radio" name="cause" value="education">
+                                    <span>Educational Assistance</span>
+                                </label>
+                                <label class="cause-option">
+                                    <input type="radio" name="cause" value="medical">
+                                    <span>Medical Camps</span>
+                                </label>
+                                <label class="cause-option">
+                                    <input type="radio" name="cause" value="disaster">
+                                    <span>Disaster Relief</span>
+                                </label>
+                                <label class="cause-option">
+                                    <input type="radio" name="cause" value="general">
+                                    <span>General Fund</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="donation-amounts">
+                            <h3>Donation Amount</h3>
+                            <div class="amount-buttons">
+                                <button type="button" class="amount-btn" data-amount="500">₹500</button>
+                                <button type="button" class="amount-btn" data-amount="1000">₹1,000</button>
+                                <button type="button" class="amount-btn" data-amount="2500">₹2,500</button>
+                                <button type="button" class="amount-btn" data-amount="5000">₹5,000</button>
+                            </div>
+                            <div class="custom-amount">
+                                <input type="number" id="customAmount" placeholder="Enter custom amount" min="1">
+                            </div>
+                        </div>
+
+                        <div class="donor-info">
+                            <h3>Your Information</h3>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="donorName">Full Name *</label>
+                                    <input type="text" id="donorName" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="donorEmail">Email *</label>
+                                    <input type="email" id="donorEmail" required>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="donorPhone">Phone</label>
+                                    <input type="tel" id="donorPhone">
+                                </div>
+                                <div class="form-group">
+                                    <label for="donorPan">PAN Number (for 80G receipt)</label>
+                                    <input type="text" id="donorPan">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="donorAddress">Address</label>
+                                <textarea id="donorAddress" rows="3"></textarea>
+                            </div>
+                        </div>
+
+                        <div class="donation-frequency">
+                            <h3>Donation Type</h3>
+                            <div class="frequency-options">
+                                <label class="frequency-option">
+                                    <input type="radio" name="frequency" value="one-time" checked>
+                                    <span>One-time</span>
+                                </label>
+                                <label class="frequency-option">
+                                    <input type="radio" name="frequency" value="monthly">
+                                    <span>Monthly</span>
+                                </label>
+                                <label class="frequency-option">
+                                    <input type="radio" name="frequency" value="yearly">
+                                    <span>Yearly</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="donation-summary">
+                            <h3>Donation Summary</h3>
+                            <div class="summary-item">
+                                <span>Cause:</span>
+                                <span id="selectedCause">Poor Feeding Programs</span>
+                            </div>
+                            <div class="summary-item">
+                                <span>Amount:</span>
+                                <span id="selectedAmount">₹0</span>
+                            </div>
+                            <div class="summary-item">
+                                <span>Frequency:</span>
+                                <span id="selectedFrequency">One-time</span>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="btn-primary donate-btn">
+                            <i class="fas fa-heart"></i>
+                            Donate Now
+                        </button>
+                    </form>
+                </div>
+
+                <!-- Impact Information -->
+                <div class="impact-info">
+                    <h2>Your Impact</h2>
+                    <div class="impact-cards">
+                        <div class="impact-card">
+                            <div class="impact-icon">
+                                <i class="fas fa-utensils"></i>
+                            </div>
+                            <h3>₹500</h3>
+                            <p>Can provide nutritious meals for 10 children for a week</p>
+                        </div>
+                        <div class="impact-card">
+                            <div class="impact-icon">
+                                <i class="fas fa-book"></i>
+                            </div>
+                            <h3>₹1,000</h3>
+                            <p>Can sponsor educational materials for a student for a month</p>
+                        </div>
+                        <div class="impact-card">
+                            <div class="impact-icon">
+                                <i class="fas fa-medkit"></i>
+                            </div>
+                            <h3>₹2,500</h3>
+                            <p>Can provide medical treatment for 5 patients</p>
+                        </div>
+                    </div>
+
+                    <div class="trust-indicators">
+                        <h3>Why Trust Us?</h3>
+                        <ul>
+                            <li><i class="fas fa-check"></i> 80G Tax Exemption Certificate</li>
+                            <li><i class="fas fa-check"></i> Transparent Fund Utilization</li>
+                            <li><i class="fas fa-check"></i> Regular Impact Reports</li>
+                            <li><i class="fas fa-check"></i> Secure Payment Gateway</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Recent Donations -->
+    <section class="recent-donations">
+        <div class="container">
+            <h2>Recent Donations</h2>
+            <div class="donations-list" id="recentDonations">
+                <!-- Dynamic content will be loaded here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Sai Seva Foundation</h3>
+                    <p>Dedicated to serving humanity and creating positive change in communities</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="donate.html">Donate</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
     </footer>
 
-    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
-    <script>
-        document.getElementById('donationForm').addEventListener('submit', function(event) {
-            event.preventDefault();
-            var options = {
-                "key": "YOUR_RAZORPAY_KEY_ID", // Enter the Key ID generated from the Dashboard
-                "amount": document.getElementById('amount').value * 100, // Amount is in currency subunits, hence multiply by 100
-                "currency": "INR",
-                "name": "Spiritual NGO",
-                "description": "Donation for Spiritual Services",
-                "image": "https://example.com/your_logo.png",
-                "order_id": "", //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
-                "handler": function (response){
-                    alert("Payment successful! Your transaction ID is " + response.razorpay_payment_id);
-                    // Here you can send the payment details to your server
-                    sendDataToServer(response);
-                },
-                "prefill": {
-                    "name": document.getElementById('name').value,
-                    "email": document.getElementById('email').value,
-                    "contact": ""
-                },
-                "notes": {
-                    "address": "Razorpay Corporate Office"
-                },
-                "theme": {
-                    "color": "#3399cc"
-                }
-            };
-            var rzp1 = new Razorpay(options);
-            rzp1.open();
-        });
-
-        function sendDataToServer(paymentData) {
-            var formData = new FormData();
-            formData.append('name', document.getElementById('name').value);
-            formData.append('email', document.getElementById('email').value);
-            formData.append('amount', document.getElementById('amount').value);
-            formData.append('payment_id', paymentData.razorpay_payment_id);
-
-            fetch('/save-donation', {
-                method: 'POST',
-                body: formData
-            })
-            .then(response => response.json())
-            .then(data => {
-                console.log('Success:', data);
-            })
-            .catch((error) => {
-                console.error('Error:', error);
-            });
-        }
-    </script>
+    <script src="http://localhost/ngo-website/js/main.js"></script>
+    
 </body>
 </html>
