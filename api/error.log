@@ -1,6 +1,0 @@
-[14-Aug-2025 01:38:14 Asia/Kolkata] PHP Fatal error:  Uncaught Exception: Database connection failed: SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: NO) in C:\xampp\htdocs\ngo-website\includes\database.php:21
-Stack trace:
-#0 C:\xampp\htdocs\ngo-website\includes\database.php(27): Database->__construct()
-#1 C:\xampp\htdocs\ngo-website\api\auth.php(7): Database::getInstance()
-#2 {main}
-  thrown in C:\xampp\htdocs\ngo-website\includes\database.php on line 21

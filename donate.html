@@ -3,187 +3,109 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Donate - Sai Seva Foundation</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <title>Donate Now - Sai Seva Foundation</title>
+    <meta name="description" content="Make a donation to Sai Seva Foundation and help transform lives through our feeding, education, medical, and disaster relief programs.">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/donate.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <meta name="csrf-token" content="">
 </head>
 <body>
-    <!-- Navigation -->
-    <nav class="navbar">
-        <div class="nav-container">
-            <div class="nav-logo">
-                <img src="images/logo.png" alt="Sai Seva Foundation">
-                <span>Sai Seva Foundation</span>
+    <!-- Header -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="nav-logo">
+                    <img src="images/logo-placeholder.svg" alt="Sai Seva Foundation" class="logo-img">
+                    <span class="logo-text">Sai Seva Foundation</span>
+                </div>
+                
+                <div class="nav-menu">
+                    <a href="index.html" class="nav-link">Home</a>
+                    <a href="about.html" class="nav-link">About</a>
+                    <a href="services.html" class="nav-link">Services</a>
+                    <a href="index.html#projects" class="nav-link">Projects</a>
+                    <a href="index.html#events" class="nav-link">Events</a>
+                    <a href="contact.html" class="nav-link">Contact</a>
+                    <div class="nav-actions">
+                        <a href="donate.html" class="btn btn-primary">Donate Now</a>
+                        <a href="login.html" class="btn btn-outline">Login</a>
+                    </div>
+                </div>
+                
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
             </div>
-            <ul class="nav-menu">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="services.html">Services</a></li>
-                <li><a href="donate.html" class="active">Donate</a></li>
-                <li><a href="contact.html">Contact</a></li>
-                <li><a href="login.html">Login</a></li>
-            </ul>
-        </div>
-    </nav>
+        </nav>
+    </header>
 
-    <!-- Donation Hero -->
-    <section class="donation-hero">
+    <!-- Page Header -->
+    <section class="page-header donate-header">
         <div class="container">
-            <h1>Make a Difference Today</h1>
-            <p>Your generous contribution helps us continue our mission to serve those in need</p>
+            <div class="page-header-content">
+                <h1>Make a Donation</h1>
+                <p>Your contribution directly impacts lives and creates lasting change in communities</p>
+                <nav class="breadcrumb">
+                    <a href="index.html">Home</a>
+                    <span>/</span>
+                    <span>Donate</span>
+                </nav>
+            </div>
         </div>
     </section>
 
-    <!-- Donation Form Section -->
-    <section class="donation-section">
+    <!-- Donation Impact -->
+    <section class="donation-impact">
         <div class="container">
-            <div class="donation-grid">
-                <!-- Donation Form -->
-                <div class="donation-form-container">
-                    <h2>Choose Your Donation</h2>
-                    <form id="donationForm" class="donation-form">
-                        <div class="donation-causes">
-                            <h3>Select a Cause</h3>
-                            <div class="cause-options">
-                                <label class="cause-option">
-                                    <input type="radio" name="cause" value="poor-feeding" checked>
-                                    <span>Poor Feeding Programs</span>
-                                </label>
-                                <label class="cause-option">
-                                    <input type="radio" name="cause" value="education">
-                                    <span>Educational Assistance</span>
-                                </label>
-                                <label class="cause-option">
-                                    <input type="radio" name="cause" value="medical">
-                                    <span>Medical Camps</span>
-                                </label>
-                                <label class="cause-option">
-                                    <input type="radio" name="cause" value="disaster">
-                                    <span>Disaster Relief</span>
-                                </label>
-                                <label class="cause-option">
-                                    <input type="radio" name="cause" value="general">
-                                    <span>General Fund</span>
-                                </label>
-                            </div>
-                        </div>
+            <div class="section-header">
+                <h2>Your Impact</h2>
+                <p>See how your donation creates real change in communities</p>
+            </div>
 
-                        <div class="donation-amounts">
-                            <h3>Donation Amount</h3>
-                            <div class="amount-buttons">
-                                <button type="button" class="amount-btn" data-amount="500">₹500</button>
-                                <button type="button" class="amount-btn" data-amount="1000">₹1,000</button>
-                                <button type="button" class="amount-btn" data-amount="2500">₹2,500</button>
-                                <button type="button" class="amount-btn" data-amount="5000">₹5,000</button>
-                            </div>
-                            <div class="custom-amount">
-                                <input type="number" id="customAmount" placeholder="Enter custom amount" min="1">
-                            </div>
-                        </div>
-
-                        <div class="donor-info">
-                            <h3>Your Information</h3>
-                            <div class="form-row">
-                                <div class="form-group">
-                                    <label for="donorName">Full Name *</label>
-                                    <input type="text" id="donorName" required>
-                                </div>
-                                <div class="form-group">
-                                    <label for="donorEmail">Email *</label>
-                                    <input type="email" id="donorEmail" required>
-                                </div>
-                            </div>
-                            <div class="form-row">
-                                <div class="form-group">
-                                    <label for="donorPhone">Phone</label>
-                                    <input type="tel" id="donorPhone">
-                                </div>
-                                <div class="form-group">
-                                    <label for="donorPan">PAN Number (for 80G receipt)</label>
-                                    <input type="text" id="donorPan">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="donorAddress">Address</label>
-                                <textarea id="donorAddress" rows="3"></textarea>
-                            </div>
-                        </div>
-
-                        <div class="donation-frequency">
-                            <h3>Donation Type</h3>
-                            <div class="frequency-options">
-                                <label class="frequency-option">
-                                    <input type="radio" name="frequency" value="one-time" checked>
-                                    <span>One-time</span>
-                                </label>
-                                <label class="frequency-option">
-                                    <input type="radio" name="frequency" value="monthly">
-                                    <span>Monthly</span>
-                                </label>
-                                <label class="frequency-option">
-                                    <input type="radio" name="frequency" value="yearly">
-                                    <span>Yearly</span>
-                                </label>
-                            </div>
-                        </div>
-
-                        <div class="donation-summary">
-                            <h3>Donation Summary</h3>
-                            <div class="summary-item">
-                                <span>Cause:</span>
-                                <span id="selectedCause">Poor Feeding Programs</span>
-                            </div>
-                            <div class="summary-item">
-                                <span>Amount:</span>
-                                <span id="selectedAmount">₹0</span>
-                            </div>
-                            <div class="summary-item">
-                                <span>Frequency:</span>
-                                <span id="selectedFrequency">One-time</span>
-                            </div>
-                        </div>
-
-                        <button type="submit" class="btn-primary donate-btn">
-                            <i class="fas fa-heart"></i>
-                            Donate Now
-                        </button>
-                    </form>
+            <div class="impact-examples">
+                <div class="impact-card">
+                    <div class="impact-amount">₹500</div>
+                    <div class="impact-description">
+                        <h3>Feed 25 Children</h3>
+                        <p>Provides nutritious meals for 25 children for one day</p>
+                        <ul>
+                            <li><i class="fas fa-check"></i> Complete balanced meal</li>
+                            <li><i class="fas fa-check"></i> Nutritional supplements</li>
+                            <li><i class="fas fa-check"></i> Health monitoring</li>
+                        </ul>
+                    </div>
                 </div>
 
-                <!-- Impact Information -->
-                <div class="impact-info">
-                    <h2>Your Impact</h2>
-                    <div class="impact-cards">
-                        <div class="impact-card">
-                            <div class="impact-icon">
-                                <i class="fas fa-utensils"></i>
-                            </div>
-                            <h3>₹500</h3>
-                            <p>Can provide nutritious meals for 10 children for a week</p>
-                        </div>
-                        <div class="impact-card">
-                            <div class="impact-icon">
-                                <i class="fas fa-book"></i>
-                            </div>
-                            <h3>₹1,000</h3>
-                            <p>Can sponsor educational materials for a student for a month</p>
-                        </div>
-                        <div class="impact-card">
-                            <div class="impact-icon">
-                                <i class="fas fa-medkit"></i>
-                            </div>
-                            <h3>₹2,500</h3>
-                            <p>Can provide medical treatment for 5 patients</p>
-                        </div>
-                    </div>
-
-                    <div class="trust-indicators">
-                        <h3>Why Trust Us?</h3>
+                <div class="impact-card featured">
+                    <div class="impact-badge">Most Popular</div>
+                    <div class="impact-amount">₹2,000</div>
+                    <div class="impact-description">
+                        <h3>Support Education</h3>
+                        <p>Covers school supplies and books for 5 students for one month</p>
                         <ul>
-                            <li><i class="fas fa-check"></i> 80G Tax Exemption Certificate</li>
-                            <li><i class="fas fa-check"></i> Transparent Fund Utilization</li>
-                            <li><i class="fas fa-check"></i> Regular Impact Reports</li>
-                            <li><i class="fas fa-check"></i> Secure Payment Gateway</li>
+                            <li><i class="fas fa-check"></i> Books and stationery</li>
+                            <li><i class="fas fa-check"></i> School uniform</li>
+                            <li><i class="fas fa-check"></i> Educational support</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="impact-card">
+                    <div class="impact-amount">₹5,000</div>
+                    <div class="impact-description">
+                        <h3>Medical Camp</h3>
+                        <p>Sponsors a complete medical checkup camp for 50 people</p>
+                        <ul>
+                            <li><i class="fas fa-check"></i> Health screenings</li>
+                            <li><i class="fas fa-check"></i> Free medicines</li>
+                            <li><i class="fas fa-check"></i> Specialist consultations</li>
                         </ul>
                     </div>
                 </div>
@@ -191,12 +113,433 @@
         </div>
     </section>
 
-    <!-- Recent Donations -->
-    <section class="recent-donations">
+    <!-- Donation Form -->
+    <section class="donation-form-section">
         <div class="container">
-            <h2>Recent Donations</h2>
-            <div class="donations-list" id="recentDonations">
-                <!-- Dynamic content will be loaded here -->
+            <div class="donation-wrapper">
+                <!-- Donation Form -->
+                <div class="donation-form-container">
+                    <div class="form-header">
+                        <h2>Complete Your Donation</h2>
+                        <p>All donations are secure and tax-deductible under 80G</p>
+                    </div>
+
+                    <form id="donationForm" class="donation-form">
+                        <!-- Cause Selection -->
+                        <div class="form-section">
+                            <label class="section-label">
+                                <i class="fas fa-heart"></i>
+                                Choose Your Cause
+                            </label>
+                            <div class="cause-selection">
+                                <button type="button" class="cause-btn active" data-cause="general">
+                                    <i class="fas fa-hand-holding-heart"></i>
+                                    <span>General Fund</span>
+                                </button>
+                                <button type="button" class="cause-btn" data-cause="poor-feeding">
+                                    <i class="fas fa-utensils"></i>
+                                    <span>Poor Feeding</span>
+                                </button>
+                                <button type="button" class="cause-btn" data-cause="education">
+                                    <i class="fas fa-graduation-cap"></i>
+                                    <span>Education</span>
+                                </button>
+                                <button type="button" class="cause-btn" data-cause="medical">
+                                    <i class="fas fa-stethoscope"></i>
+                                    <span>Medical Care</span>
+                                </button>
+                                <button type="button" class="cause-btn" data-cause="disaster">
+                                    <i class="fas fa-first-aid"></i>
+                                    <span>Disaster Relief</span>
+                                </button>
+                            </div>
+                            <input type="hidden" id="selected_cause" name="cause" value="general">
+                        </div>
+
+                        <!-- Amount Selection -->
+                        <div class="form-section">
+                            <label class="section-label">
+                                <i class="fas fa-rupee-sign"></i>
+                                Donation Amount
+                            </label>
+                            <div class="amount-selection">
+                                <button type="button" class="amount-btn" data-amount="500">₹500</button>
+                                <button type="button" class="amount-btn" data-amount="1000">₹1,000</button>
+                                <button type="button" class="amount-btn active" data-amount="2000">₹2,000</button>
+                                <button type="button" class="amount-btn" data-amount="5000">₹5,000</button>
+                                <button type="button" class="amount-btn" data-amount="10000">₹10,000</button>
+                            </div>
+                            
+                            <div class="custom-amount">
+                                <label for="customAmount">Or enter custom amount</label>
+                                <div class="amount-input">
+                                    <span class="currency">₹</span>
+                                    <input type="number" id="customAmount" placeholder="Enter amount" min="1" max="1000000">
+                                </div>
+                            </div>
+                            <input type="hidden" id="donation_amount" name="amount" value="2000">
+                        </div>
+
+                        <!-- Donation Frequency -->
+                        <div class="form-section">
+                            <label class="section-label">
+                                <i class="fas fa-calendar-alt"></i>
+                                Donation Frequency
+                            </label>
+                            <div class="frequency-selection">
+                                <label class="frequency-option">
+                                    <input type="radio" name="frequency" value="one-time" checked>
+                                    <span class="frequency-card">
+                                        <i class="fas fa-gift"></i>
+                                        <strong>One Time</strong>
+                                        <small>Single donation</small>
+                                    </span>
+                                </label>
+                                <label class="frequency-option">
+                                    <input type="radio" name="frequency" value="monthly">
+                                    <span class="frequency-card">
+                                        <i class="fas fa-sync-alt"></i>
+                                        <strong>Monthly</strong>
+                                        <small>Recurring monthly</small>
+                                    </span>
+                                </label>
+                                <label class="frequency-option">
+                                    <input type="radio" name="frequency" value="yearly">
+                                    <span class="frequency-card">
+                                        <i class="fas fa-calendar"></i>
+                                        <strong>Yearly</strong>
+                                        <small>Annual donation</small>
+                                    </span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Donor Information -->
+                        <div class="form-section">
+                            <label class="section-label">
+                                <i class="fas fa-user"></i>
+                                Donor Information
+                            </label>
+                            
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="donor_name">Full Name *</label>
+                                    <input type="text" id="donor_name" name="donor_name" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="donor_email">Email Address *</label>
+                                    <input type="email" id="donor_email" name="donor_email" required>
+                                </div>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="donor_phone">Phone Number</label>
+                                    <input type="tel" id="donor_phone" name="donor_phone" maxlength="10" placeholder="10-digit mobile number">
+                                </div>
+                                <div class="form-group">
+                                    <label for="donor_pan">PAN Number (for 80G certificate)</label>
+                                    <input type="text" id="donor_pan" name="donor_pan" maxlength="10" placeholder="ABCDE1234F" style="text-transform: uppercase;">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="donor_address">Address (Optional)</label>
+                                <textarea id="donor_address" name="donor_address" rows="3" placeholder="Complete address for donation receipt"></textarea>
+                            </div>
+                        </div>
+
+                        <!-- Terms and Conditions -->
+                        <div class="form-section">
+                            <div class="terms-section">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" id="terms" required>
+                                    <span class="checkmark"></span>
+                                    I agree to the <a href="#terms" target="_blank">Terms and Conditions</a> and confirm that this donation is made voluntarily *
+                                </label>
+
+                                <label class="checkbox-label">
+                                    <input type="checkbox" id="updates" name="updates" value="1">
+                                    <span class="checkmark"></span>
+                                    I would like to receive updates about the impact of my donation
+                                </label>
+
+                                <label class="checkbox-label">
+                                    <input type="checkbox" id="anonymous" name="anonymous" value="1">
+                                    <span class="checkmark"></span>
+                                    Keep my donation anonymous
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Hidden CSRF Token -->
+                        <input type="hidden" name="csrf_token" id="csrf_token" value="">
+
+                        <!-- Submit Button -->
+                        <button type="submit" class="btn btn-primary btn-large donate-submit">
+                            <i class="fas fa-credit-card"></i>
+                            Proceed to Payment
+                        </button>
+
+                        <!-- Security Note -->
+                        <div class="security-note">
+                            <i class="fas fa-shield-alt"></i>
+                            <span>Your payment is 100% secure and encrypted. We use industry-standard security measures.</span>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Donation Summary -->
+                <div class="donation-summary">
+                    <div class="summary-card">
+                        <h3>Donation Summary</h3>
+                        
+                        <div class="summary-item">
+                            <span class="label">Cause:</span>
+                            <span class="value" id="summary-cause">General Fund</span>
+                        </div>
+
+                        <div class="summary-item">
+                            <span class="label">Amount:</span>
+                            <span class="value" id="summary-amount">₹2,000</span>
+                        </div>
+
+                        <div class="summary-item">
+                            <span class="label">Frequency:</span>
+                            <span class="value" id="summary-frequency">One Time</span>
+                        </div>
+
+                        <div class="summary-divider"></div>
+
+                        <div class="summary-total">
+                            <span class="label">Total Amount:</span>
+                            <span class="value" id="summary-total">₹2,000</span>
+                        </div>
+
+                        <div class="tax-benefit">
+                            <i class="fas fa-info-circle"></i>
+                            <div>
+                                <strong>Tax Benefit</strong>
+                                <p>You can claim 50% tax deduction under section 80G</p>
+                                <p class="tax-amount">Eligible deduction: <span id="tax-deduction">₹1,000</span></p>
+                            </div>
+                        </div>
+
+                        <div class="payment-methods">
+                            <h4>Accepted Payment Methods</h4>
+                            <div class="payment-icons">
+                                <img src="images/phonepe.png" alt="PhonePe" title="PhonePe">
+                                <img src="images/upi.png" alt="UPI" title="UPI">
+                                <img src="images/card.png" alt="Cards" title="Credit/Debit Cards">
+                                <img src="images/netbanking.png" alt="Net Banking" title="Net Banking">
+                            </div>
+                        </div>
+
+                        <div class="trust-indicators">
+                            <div class="trust-item">
+                                <i class="fas fa-certificate"></i>
+                                <span>80G Certified</span>
+                            </div>
+                            <div class="trust-item">
+                                <i class="fas fa-lock"></i>
+                                <span>Secure Payment</span>
+                            </div>
+                            <div class="trust-item">
+                                <i class="fas fa-receipt"></i>
+                                <span>Instant Receipt</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Recent Donations -->
+                    <div class="recent-donations">
+                        <h4>Recent Donations</h4>
+                        <div class="donation-feed">
+                            <div class="donation-item">
+                                <div class="donor-info">
+                                    <div class="donor-initial">A</div>
+                                    <div>
+                                        <div class="donor-name">Anonymous</div>
+                                        <div class="donation-time">2 hours ago</div>
+                                    </div>
+                                </div>
+                                <div class="donation-amount">₹1,500</div>
+                            </div>
+
+                            <div class="donation-item">
+                                <div class="donor-info">
+                                    <div class="donor-initial">R</div>
+                                    <div>
+                                        <div class="donor-name">Rajesh K.</div>
+                                        <div class="donation-time">5 hours ago</div>
+                                    </div>
+                                </div>
+                                <div class="donation-amount">₹5,000</div>
+                            </div>
+
+                            <div class="donation-item">
+                                <div class="donor-info">
+                                    <div class="donor-initial">P</div>
+                                    <div>
+                                        <div class="donor-name">Priya M.</div>
+                                        <div class="donation-time">8 hours ago</div>
+                                    </div>
+                                </div>
+                                <div class="donation-amount">₹2,000</div>
+                            </div>
+
+                            <div class="donation-item">
+                                <div class="donor-info">
+                                    <div class="donor-initial">S</div>
+                                    <div>
+                                        <div class="donor-name">Suresh T.</div>
+                                        <div class="donation-time">1 day ago</div>
+                                    </div>
+                                </div>
+                                <div class="donation-amount">₹10,000</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Other Ways to Help -->
+    <section class="other-ways">
+        <div class="container">
+            <div class="section-header">
+                <h2>Other Ways to Help</h2>
+                <p>Support our mission through various meaningful contributions</p>
+            </div>
+
+            <div class="help-options">
+                <div class="help-card">
+                    <div class="help-icon">
+                        <i class="fas fa-hands-helping"></i>
+                    </div>
+                    <h3>Volunteer Your Time</h3>
+                    <p>Join our team of dedicated volunteers and directly serve communities in need.</p>
+                    <a href="#volunteer" class="btn btn-outline">Become a Volunteer</a>
+                </div>
+
+                <div class="help-card">
+                    <div class="help-icon">
+                        <i class="fas fa-box"></i>
+                    </div>
+                    <h3>Donate Goods</h3>
+                    <p>Contribute clothes, books, medical supplies, or other essential items.</p>
+                    <a href="contact.html" class="btn btn-outline">Donate Items</a>
+                </div>
+
+                <div class="help-card">
+                    <div class="help-icon">
+                        <i class="fas fa-share-alt"></i>
+                    </div>
+                    <h3>Spread the Word</h3>
+                    <p>Help us reach more people by sharing our mission on social media.</p>
+                    <div class="share-buttons">
+                        <a href="#" class="share-btn facebook" title="Share on Facebook">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="share-btn twitter" title="Share on Twitter">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="share-btn linkedin" title="Share on LinkedIn">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="#" class="share-btn whatsapp" title="Share on WhatsApp">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="help-card">
+                    <div class="help-icon">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <h3>Corporate Partnership</h3>
+                    <p>Partner with us for CSR initiatives and sustainable community programs.</p>
+                    <a href="contact.html" class="btn btn-outline">Partner With Us</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Transparency Section -->
+    <section class="transparency">
+        <div class="container">
+            <div class="transparency-content">
+                <div class="transparency-text">
+                    <h2>Complete Transparency</h2>
+                    <p>We believe in full transparency and accountability. Every rupee donated is tracked and reported.</p>
+                    
+                    <div class="transparency-features">
+                        <div class="feature">
+                            <i class="fas fa-chart-pie"></i>
+                            <div>
+                                <h4>Fund Utilization</h4>
+                                <p>Detailed breakdown of how donations are utilized across programs</p>
+                            </div>
+                        </div>
+                        
+                        <div class="feature">
+                            <i class="fas fa-file-alt"></i>
+                            <div>
+                                <h4>Annual Reports</h4>
+                                <p>Comprehensive annual reports with impact metrics and financial statements</p>
+                            </div>
+                        </div>
+                        
+                        <div class="feature">
+                            <i class="fas fa-receipt"></i>
+                            <div>
+                                <h4>Donation Receipts</h4>
+                                <p>Instant digital receipts for all donations with tax exemption details</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="transparency-actions">
+                        <a href="#reports" class="btn btn-outline">View Reports</a>
+                        <a href="#impact" class="btn btn-outline">Impact Stories</a>
+                    </div>
+                </div>
+
+                <div class="fund-breakdown">
+                    <h3>How We Use Your Donations</h3>
+                    <div class="fund-chart">
+                        <div class="fund-item">
+                            <div class="fund-bar">
+                                <div class="fund-progress" style="width: 75%"></div>
+                            </div>
+                            <div class="fund-details">
+                                <span class="fund-label">Program Activities</span>
+                                <span class="fund-percentage">75%</span>
+                            </div>
+                        </div>
+                        
+                        <div class="fund-item">
+                            <div class="fund-bar">
+                                <div class="fund-progress" style="width: 15%"></div>
+                            </div>
+                            <div class="fund-details">
+                                <span class="fund-label">Administrative Costs</span>
+                                <span class="fund-percentage">15%</span>
+                            </div>
+                        </div>
+                        
+                        <div class="fund-item">
+                            <div class="fund-bar">
+                                <div class="fund-progress" style="width: 10%"></div>
+                            </div>
+                            <div class="fund-details">
+                                <span class="fund-label">Fundraising</span>
+                                <span class="fund-percentage">10%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -206,23 +549,134 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-section">
-                    <h3>Sai Seva Foundation</h3>
-                    <p>Dedicated to serving humanity and creating positive change in communities</p>
+                    <div class="footer-logo">
+                        <img src="images/logo-placeholder.svg" alt="Sai Seva Foundation" class="logo-img">
+                        <span class="logo-text">Sai Seva Foundation</span>
+                    </div>
+                    <p class="footer-description">
+                        [Add your foundation's mission statement or brief description here]
+                    </p>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+                    </div>
                 </div>
+
                 <div class="footer-section">
-                    <h4>Quick Links</h4>
-                    <ul>
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
                         <li><a href="about.html">About Us</a></li>
-                        <li><a href="services.html">Services</a></li>
-                        <li><a href="donate.html">Donate</a></li>
+                        <li><a href="services.html">Our Services</a></li>
+                        <li><a href="index.html#projects">Projects</a></li>
+                        <li><a href="index.html#events">Events</a></li>
                         <li><a href="contact.html">Contact</a></li>
                     </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Our Services</h3>
+                    <ul class="footer-links">
+                        <li><a href="services.html#feeding">Poor Feeding</a></li>
+                        <li><a href="services.html#education">Education Support</a></li>
+                        <li><a href="services.html#medical">Medical Camps</a></li>
+                        <li><a href="services.html#disaster">Disaster Relief</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Get Involved</h3>
+                    <ul class="footer-links">
+                        <li><a href="donate.html">Make a Donation</a></li>
+                        <li><a href="#volunteer">Volunteer</a></li>
+                        <li><a href="index.html#events">Join Events</a></li>
+                        <li><a href="contact.html">Partnership</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Contact Info</h3>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>[Your Address], Shirdi, Maharashtra, India</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <span>+91 [Your Phone Number]</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <span>info@saisevafoundation.org</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <div class="footer-bottom-content">
+                    <p>&copy; 2025 Sai Seva Foundation. All rights reserved.</p>
+                    <div class="footer-bottom-links">
+                        <a href="#privacy">Privacy Policy</a>
+                        <a href="#terms">Terms of Service</a>
+                        <a href="#transparency">Transparency</a>
+                    </div>
                 </div>
             </div>
         </div>
     </footer>
 
-    <script src="http://localhost/ngo-website/js/main.js"></script>
-    
+    <!-- Loading Overlay -->
+    <div id="loadingOverlay" class="loading-overlay hidden">
+        <div class="loading-content">
+            <div class="spinner"></div>
+            <h3>Processing Your Donation</h3>
+            <p>Please wait while we prepare your secure payment...</p>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/main.js"></script>
+    <script src="js/donation-updated.js"></script>
+    <script>
+        // Initialize donation page
+        document.addEventListener('DOMContentLoaded', function() {
+            // Get URL parameters to pre-select cause
+            const urlParams = new URLSearchParams(window.location.search);
+            const cause = urlParams.get('cause');
+            const project = urlParams.get('project');
+            
+            if (cause) {
+                selectCause(cause);
+            } else if (project) {
+                // Map project to cause
+                const projectCauseMap = {
+                    'shirdi-feeding': 'poor-feeding',
+                    'education': 'education',
+                    'medical': 'medical'
+                };
+                if (projectCauseMap[project]) {
+                    selectCause(projectCauseMap[project]);
+                }
+            }
+        });
+
+        function selectCause(causeValue) {
+            // Remove active class from all buttons
+            document.querySelectorAll('.cause-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+
+            // Find and activate the correct button
+            const causeBtn = document.querySelector(`[data-cause="${causeValue}"]`);
+            if (causeBtn) {
+                causeBtn.classList.add('active');
+                document.getElementById('selected_cause').value = causeValue;
+                document.getElementById('summary-cause').textContent = causeBtn.textContent.trim();
+            }
+        }
+    </script>
 </body>
 </html>
