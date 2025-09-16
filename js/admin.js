@@ -10,7 +10,7 @@ class AdminDashboard {
     constructor() {
         this.baseURL = window.location.origin;
         this.apiURL = this.baseURL + '/api';
-        this.csrfToken = '4ff0c3a6f7cdb69870b0963c2cbd2f648d39f851f7bc00b42a8e69aacc8955b0';
+        this.csrfToken = '';
         this.currentAdmin = null;
         this.refreshInterval = null;
         this.chartInstances = {};
