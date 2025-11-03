@@ -7,6 +7,7 @@
     <meta name="description" content="Join Sai Seva Foundation in our mission to serve humanity through poor feeding programs, education support, medical camps, and disaster relief across India.">
     <link rel="stylesheet" href="css/common.css">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="./css/hero-carousel-styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -25,11 +26,11 @@
                 </div>
                 
                 <div class="nav-menu">
-                    <a href="#home" class="nav-link active">Home</a>
+                    <a href="index.html" class="nav-link active">Home</a>
                     <a href="about.html" class="nav-link">About</a>
                     <a href="services.html" class="nav-link">Services</a>
-                    <a href="#projects" class="nav-link">Projects</a>
-                    <a href="#events" class="nav-link">Events</a>
+                    <a href="projects.html" class="nav-link">Projects</a>
+                    <a href="events.html" class="nav-link">Events</a>
                     <a href="contact.html" class="nav-link">Contact</a>
                     <div class="nav-actions">
                         <a href="donate.html" class="btn btn-primary">Donate Now</a>
@@ -47,7 +48,100 @@
     </header>
 
     <!-- Hero Section -->
-    <section id="home" class="hero">
+    <section class="hero-carousel" aria-label="Hero carousel showcasing our mission">
+        <div class="slide-overlay"></div>
+                <div class="slide-content">
+                    <div class="container">
+                        <div class="slide-text">
+                            <h1 class="slide-title">
+                                <span class="title-line">Transforming Lives</span>
+                                <span class="title-line">Through <span class="highlight">Compassionate Service</span></span>
+                            </h1>
+                            <p class="slide-description">
+                                Join us in our mission to uplift communities through education, healthcare, and sustainable development programs that create lasting positive impact.
+                            </p>
+                            <div class="slide-actions">
+                                <a href="./donate.html" class="btn btn--primary btn--large">
+                                    <i class="fas fa-heart" aria-hidden="true"></i>
+                                    Donate Now
+                                </a>
+                                <a href="./about.html" class="btn btn--secondary btn--large">
+                                    <i class="fas fa-info-circle" aria-hidden="true"></i>
+                                    Learn More
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        <!-- Carousel Slides -->
+        <div class="carousel-slides" id="carousel-slides">
+            <!-- Slide 1: Main Mission -->
+            <div class="carousel-slide active" data-slide="0">
+                <div class="slide-background">
+                    <img src="./images/hero-01.jpg" alt="Volunteers helping children in education program" loading="eager">
+                </div>
+            </div>
+
+            <!-- Slide 2: Education Focus -->
+            <div class="carousel-slide" data-slide="1">
+                <div class="slide-background">
+                    <img src="./images/hero-2.jpg" alt="Children studying in our education center" loading="lazy">
+                </div>
+            </div>
+
+            <!-- Slide 3: Healthcare Focus -->
+            <div class="carousel-slide" data-slide="2">
+                <div class="slide-background">
+                    <img src="./images/hero-3.jpg" alt="Medical camp providing free healthcare" loading="lazy">
+                </div>
+            </div>
+
+            <!-- Slide 4: Volunteer Call to Action -->
+            <div class="carousel-slide" data-slide="3">
+                <div class="slide-background">
+                    <img src="./images/hero-4.jpg" alt="Happy volunteers working together in community service" loading="lazy">
+                </div>
+            </div>
+        </div>
+        
+            <!-- Slide 5: Volunteer Call to Action -->
+            <div class="carousel-slide" data-slide="4">
+                <div class="slide-background">
+                    <img src="./images/hero-5.jpg" alt="Happy volunteers working together in community service" loading="lazy">
+                </div>
+            </div>
+
+        <!-- Carousel Navigation -->
+        <div class="carousel-navigation">
+            <!-- Previous/Next Buttons -->
+            <button class="carousel-btn carousel-btn--prev" aria-label="Previous slide" id="prevBtn">
+                <i class="fas fa-chevron-left" aria-hidden="true"></i>
+            </button>
+            <button class="carousel-btn carousel-btn--next" aria-label="Next slide" id="nextBtn">
+                <i class="fas fa-chevron-right" aria-hidden="true"></i>
+            </button>
+
+            <!-- Slide Indicators -->
+            <div class="carousel-indicators" role="tablist" aria-label="Carousel slide indicators">
+                <button class="indicator active" aria-label="Go to slide 1" data-slide="0" role="tab" aria-selected="true"></button>
+                <button class="indicator" aria-label="Go to slide 2" data-slide="1" role="tab" aria-selected="false"></button>
+                <button class="indicator" aria-label="Go to slide 3" data-slide="2" role="tab" aria-selected="false"></button>
+                <button class="indicator" aria-label="Go to slide 4" data-slide="3" role="tab" aria-selected="false"></button>
+            </div>
+        </div>
+
+        <!-- Carousel Progress Bar -->
+        <div class="carousel-progress">
+            <div class="progress-bar" id="progressBar"></div>
+        </div>
+
+        <!-- Auto-play Control -->
+        <button class="carousel-play-pause" aria-label="Pause auto-play" id="playPauseBtn">
+            <i class="fas fa-pause" aria-hidden="true"></i>
+        </button>
+        </div>
+    </section>
+    <!-- <section id="home" class="hero">
         <div class="hero-background">
             <div class="hero-overlay"></div>
         </div>
@@ -73,7 +167,7 @@
                     </div>
                 </div>
                 
-                <!-- <div class="hero-stats">
+                <div class="hero-stats">
                     <div class="stat-item">
                         <div class="stat-number" data-target="50000">0</div>
                         <div class="stat-label">Lives Touched</div>
@@ -90,10 +184,10 @@
                         <div class="stat-number" data-target="100000">0</div>
                         <div class="stat-label">Meals Served</div>
                     </div>
-                </div> -->
+                </div>
             </div>
         </div>
-    </section>
+    </section> -->
 
     <!-- About Section -->
     <section id="about" class="about">
@@ -567,8 +661,8 @@
                 <div class="footer-bottom-content">
                     <p>&copy; 2025 Sri Dutta Sai Manga Bharadwaja Trust. All rights reserved.</p>
                     <div class="footer-bottom-links">
-                        <a href="#privacy">Privacy Policy</a>
-                        <a href="#terms">Terms of Service</a>
+                        <a href="policy.html">Privacy Policy</a>
+                        <a href="terms.html">Terms of Service</a>
                         <a href="#transparency">Transparency</a>
                     </div>
                 </div>
@@ -578,6 +672,7 @@
 
     <!-- Scripts -->
     <script src="js/main.js"></script>
+    <script src="./js/hero-carousel-script.js"></script>
     <script>
         // Initialize CSRF token
         document.addEventListener('DOMContentLoaded', async function() {
