@@ -2,7 +2,7 @@
  * DEBUG AUTH SYSTEM - Sri Dutta Sai Manga Bharadwaja Trust
  * Simplified authentication with enhanced debugging for troubleshooting
  * 
- * @version DEBUG-1.0
+ * @version DEBUG-1.1 - FIXED: Action parameter in URL
  * @priority CRITICAL - Fixes non-working login/registration
  */
 
@@ -153,7 +153,7 @@ class DebugAuthSystem {
     }
 
     /**
-     * Handle login with enhanced debugging
+     * Handle login with enhanced debugging - FIXED VERSION
      */
     async handleLogin(e) {
         this.debugLog('🔑 Starting login process...');
@@ -166,7 +166,6 @@ class DebugAuthSystem {
             // Collect form data
             const formData = new FormData(form);
             const loginData = {
-                action: 'login',
                 email: formData.get('email'),
                 password: formData.get('password'),
                 user_type: formData.get('user_type') || 'user',
@@ -185,8 +184,8 @@ class DebugAuthSystem {
             submitBtn.disabled = true;
             submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Signing In...';
             
-            // Make API call
-            const response = await fetch(this.apiURL, {
+            // FIXED: Send action as query parameter
+            const response = await fetch(`${this.apiURL}?action=login`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -232,7 +231,7 @@ class DebugAuthSystem {
     }
 
     /**
-     * Handle registration with enhanced debugging
+     * Handle registration with enhanced debugging - FIXED VERSION
      */
     async handleRegister(e) {
         this.debugLog('📝 Starting registration process...');
@@ -245,7 +244,6 @@ class DebugAuthSystem {
             // Collect form data
             const formData = new FormData(form);
             const registerData = {
-                action: 'register',
                 name: formData.get('name'),
                 email: formData.get('email'),
                 phone: formData.get('phone'),
@@ -269,8 +267,8 @@ class DebugAuthSystem {
             submitBtn.disabled = true;
             submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Creating Account...';
             
-            // Make API call
-            const response = await fetch(this.apiURL, {
+            // FIXED: Send action as query parameter
+            const response = await fetch(`${this.apiURL}?action=register`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -409,7 +407,7 @@ class DebugAuthSystem {
         style.textContent = `
             .debug-notification {
                 position: fixed;
-                top: 10px;
+                top: 60px;
                 left: 10px;
                 right: 10px;
                 z-index: 10003;
@@ -422,6 +420,7 @@ class DebugAuthSystem {
                 align-items: center;
                 gap: 0.5rem;
                 animation: slideInDown 0.3s ease;
+                box-shadow: 0 4px 20px rgba(0,0,0,0.15);
             }
             
             .debug-notification.success {
@@ -451,7 +450,7 @@ class DebugAuthSystem {
                 position: fixed;
                 bottom: 20px;
                 right: 20px;
-                background: rgba(0, 0, 0, 0.8);
+                background: rgba(0, 0, 0, 0.9);
                 color: white;
                 padding: 1rem;
                 border-radius: 8px;
@@ -459,6 +458,7 @@ class DebugAuthSystem {
                 font-size: 0.75rem;
                 max-width: 300px;
                 z-index: 1000;
+                border: 2px solid #fbbf24;
             }
             
             .debug-credentials h4 {
@@ -473,17 +473,35 @@ class DebugAuthSystem {
             }
             
             .debug-credentials li {
-                margin-bottom: 0.25rem;
+                margin-bottom: 0.5rem;
                 cursor: pointer;
+                padding: 0.25rem;
+                border-radius: 4px;
+                transition: background 0.2s;
             }
             
             .debug-credentials li:hover {
+                background: rgba(59, 130, 246, 0.2);
                 color: #60a5fa;
+            }
+            
+            .debug-status {
+                position: fixed;
+                top: 60px;
+                right: 10px;
+                background: rgba(0, 0, 0, 0.8);
+                color: #10b981;
+                padding: 0.5rem 1rem;
+                border-radius: 8px;
+                font-family: monospace;
+                font-size: 0.75rem;
+                z-index: 1001;
             }
         `;
         
         document.head.appendChild(style);
         this.addDebugCredentials();
+        this.addDebugStatus();
         this.debugLog('✅ Form validation setup complete');
     }
 
@@ -496,14 +514,46 @@ class DebugAuthSystem {
         debugBox.innerHTML = `
             <h4>🔑 Test Accounts</h4>
             <ul>
-                <li onclick="window.debugAuth.fillLogin('admin@sadgurubharadwaja.org', 'admin123', 'admin')">👑 Admin Account</li>
-                <li onclick="window.debugAuth.fillLogin('volunteer@sadgurubharadwaja.org', 'volunteer123', 'volunteer')">🤝 Volunteer Account</li>
-                <li onclick="window.debugAuth.fillLogin('donor@sadgurubharadwaja.org', 'donor123', 'user')">❤️ Donor Account</li>
+                <li onclick="window.debugAuth.fillLogin('admin@sadgurubharadwaja.org', 'admin123', 'admin')" title="Click to auto-fill">
+                    👑 Admin: admin@...org<br>
+                    <small style="color: #9ca3af;">Password: admin123</small>
+                </li>
+                <li onclick="window.debugAuth.fillLogin('volunteer@sadgurubharadwaja.org', 'volunteer123', 'volunteer')" title="Click to auto-fill">
+                    🤝 Volunteer: volunteer@...org<br>
+                    <small style="color: #9ca3af;">Password: volunteer123</small>
+                </li>
+                <li onclick="window.debugAuth.fillLogin('donor@sadgurubharadwaja.org', 'donor123', 'user')" title="Click to auto-fill">
+                    ❤️ Donor: donor@...org<br>
+                    <small style="color: #9ca3af;">Password: donor123</small>
+                </li>
             </ul>
-            <small>Click to auto-fill login form</small>
+            <small>↑ Click any account to auto-fill form</small>
         `;
         
         document.body.appendChild(debugBox);
+    }
+
+    /**
+     * Add debug status indicator
+     */
+    addDebugStatus() {
+        const statusBox = document.createElement('div');
+        statusBox.className = 'debug-status';
+        statusBox.innerHTML = '🟢 API Ready';
+        statusBox.id = 'debug-status-indicator';
+        
+        document.body.appendChild(statusBox);
+        
+        // Update status based on API connectivity
+        setTimeout(() => {
+            if (this.csrfToken) {
+                statusBox.innerHTML = '🟢 Fully Ready';
+                statusBox.style.color = '#10b981';
+            } else {
+                statusBox.innerHTML = '🔴 API Issue';
+                statusBox.style.color = '#ef4444';
+            }
+        }, 2000);
     }
 
     /**
@@ -527,7 +577,7 @@ class DebugAuthSystem {
             if (passwordInput) passwordInput.value = password;
             if (userTypeSelect) userTypeSelect.value = userType;
             
-            this.showDebugNotification(`Filled with ${userType} credentials. Click login!`, 'info');
+            this.showDebugNotification(`Filled with ${userType} credentials. Click Login!`, 'info');
         }, 500);
     }
 
@@ -556,7 +606,7 @@ class DebugAuthSystem {
         notification.innerHTML = `
             <i class="fas ${type === 'success' ? 'fa-check-circle' : type === 'error' ? 'fa-exclamation-circle' : 'fa-info-circle'}"></i>
             <span>${message}</span>
-            <button onclick="this.parentElement.remove()" style="background:none;border:none;color:inherit;cursor:pointer;margin-left:auto;">&times;</button>
+            <button onclick="this.parentElement.remove()" style="background:none;border:none;color:inherit;cursor:pointer;margin-left:auto;font-size:1.2rem;">&times;</button>
         `;
         
         document.body.appendChild(notification);
@@ -579,14 +629,34 @@ class DebugAuthSystem {
             userInfo: JSON.parse(localStorage.getItem('debug_user_info') || 'null'),
             sessionInfo: {
                 sessionId: document.cookie.match(/PHPSESSID=([^;]+)/)?.[1] || 'not found'
+            },
+            formElements: {
+                loginForm: !!document.getElementById('loginForm'),
+                registerForm: !!document.getElementById('registerForm'),
+                csrfInputs: document.querySelectorAll('input[name="csrf_token"]').length
             }
         };
+    }
+
+    /**
+     * Enhanced setup tab switching
+     */
+    setupTabSwitching() {
+        // Make sure tabs work properly
+        document.querySelectorAll('.tab-btn').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                this.switchTab(e);
+            });
+        });
     }
 }
 
 // Initialize debug auth system
 document.addEventListener('DOMContentLoaded', () => {
     console.log('🚀 Initializing Debug Auth System...');
+    console.log('🔧 This version sends action as query parameter to fix PHP routing issues');
+    
     window.debugAuth = new DebugAuthSystem();
     
     // Add global debug helper
@@ -595,6 +665,7 @@ document.addEventListener('DOMContentLoaded', () => {
     };
     
     console.log('💡 Use authDebugStatus() to check system status');
+    console.log('💡 Test accounts are available in bottom-right corner');
 });
 
 // Export for global access
