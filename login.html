@@ -7,6 +7,7 @@
     <meta name="description" content="Login to your Sai Seva Foundation account to access your dashboard and track your contributions.">
     <link rel="stylesheet" href="css/common.css">
     <link rel="stylesheet" href="css/login.css">
+    <link rel="stylesheet" href="css/theme-compatibility.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -54,7 +55,7 @@
                             <label for="login_email">Email Address</label>
                             <div class="input-group">
                                 <i class="fas fa-envelope"></i>
-                                <input type="email" id="login_email" name="email" required autocomplete="email">
+                                <input type="email" id="login_email" name="email" required autocomplete="email" placeholder="Enter your email">
                             </div>
                         </div>
 
@@ -62,8 +63,8 @@
                             <label for="login_password">Password</label>
                             <div class="input-group">
                                 <i class="fas fa-lock"></i>
-                                <input type="password" id="login_password" name="password" required autocomplete="current-password">
-                                <button type="button" class="password-toggle" data-target="login_password">
+                                <input type="password" id="login_password" name="password" required autocomplete="current-password" placeholder="Enter your password">
+                                <button type="button" class="password-toggle">
                                     <i class="fas fa-eye"></i>
                                 </button>
                             </div>
@@ -88,7 +89,7 @@
                                 <span class="checkmark"></span>
                                 Remember me
                             </label>
-                            <a href="#forgot-password" class="forgot-link">Forgot Password?</a>
+                            <a href="#" class="forgot-link">Forgot Password?</a>
                         </div>
 
                         <input type="hidden" name="csrf_token" id="login_csrf_token" value="">
@@ -98,17 +99,6 @@
                             Login to Dashboard
                         </button>
                     </form>
-
-                    <div class="auth-divider">
-                        <span>or</span>
-                    </div>
-
-                    <div class="social-login">
-                        <button class="social-btn google">
-                            <i class="fab fa-google"></i>
-                            Continue with Google
-                        </button>
-                    </div>
                 </div>
 
                 <!-- Register Form -->
@@ -124,14 +114,14 @@
                                 <label for="register_name">Full Name</label>
                                 <div class="input-group">
                                     <i class="fas fa-user"></i>
-                                    <input type="text" id="register_name" name="name" required autocomplete="name">
+                                    <input type="text" id="register_name" name="name" required autocomplete="name" placeholder="Enter your full name">
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label for="register_email">Email Address</label>
                                 <div class="input-group">
                                     <i class="fas fa-envelope"></i>
-                                    <input type="email" id="register_email" name="email" required autocomplete="email">
+                                    <input type="email" id="register_email" name="email" required autocomplete="email" placeholder="Enter your email">
                                 </div>
                             </div>
                         </div>
@@ -141,7 +131,7 @@
                                 <label for="register_phone">Phone Number</label>
                                 <div class="input-group">
                                     <i class="fas fa-phone"></i>
-                                    <input type="tel" id="register_phone" name="phone" maxlength="10" autocomplete="tel">
+                                    <input type="tel" id="register_phone" name="phone" maxlength="10" autocomplete="tel" placeholder="10-digit mobile">
                                 </div>
                             </div>
                             <div class="form-group">
@@ -149,7 +139,7 @@
                                 <div class="input-group">
                                     <i class="fas fa-user-tag"></i>
                                     <select id="register_user_type" name="user_type" required>
-                                        <option value="">Select Account Type</option>
+                                        <option value="">Select Type</option>
                                         <option value="user">Donor/Supporter</option>
                                         <option value="volunteer">Volunteer</option>
                                     </select>
@@ -161,8 +151,8 @@
                             <label for="register_password">Password</label>
                             <div class="input-group">
                                 <i class="fas fa-lock"></i>
-                                <input type="password" id="register_password" name="password" required autocomplete="new-password">
-                                <button type="button" class="password-toggle" data-target="register_password">
+                                <input type="password" id="register_password" name="password" required autocomplete="new-password" placeholder="Create a strong password">
+                                <button type="button" class="password-toggle">
                                     <i class="fas fa-eye"></i>
                                 </button>
                             </div>
@@ -178,7 +168,7 @@
                             <label for="confirm_password">Confirm Password</label>
                             <div class="input-group">
                                 <i class="fas fa-lock"></i>
-                                <input type="password" id="confirm_password" name="confirm_password" required autocomplete="new-password">
+                                <input type="password" id="confirm_password" name="confirm_password" required autocomplete="new-password" placeholder="Confirm your password">
                                 <div class="password-match">
                                     <i class="fas fa-check" style="display: none;"></i>
                                     <i class="fas fa-times" style="display: none;"></i>
@@ -197,7 +187,7 @@
                                 <label class="checkbox-label">
                                     <input type="checkbox" id="newsletter_signup" name="newsletter" value="1">
                                     <span class="checkmark"></span>
-                                    Subscribe to newsletters and updates about our work
+                                    Subscribe to newsletters and updates
                                 </label>
                             </div>
                         </div>
@@ -209,17 +199,6 @@
                             Create Account
                         </button>
                     </form>
-
-                    <div class="auth-divider">
-                        <span>or</span>
-                    </div>
-
-                    <div class="social-login">
-                        <button class="social-btn google">
-                            <i class="fab fa-google"></i>
-                            Sign up with Google
-                        </button>
-                    </div>
                 </div>
 
                 <!-- Account Type Info -->
@@ -231,21 +210,14 @@
                                 <div class="type-icon"><i class="fas fa-heart"></i></div>
                                 <div class="type-content">
                                     <strong>Donor/Supporter</strong>
-                                    <p>Make donations, track contributions, receive receipts, and see impact reports</p>
+                                    <p>Make donations, track contributions, receive receipts</p>
                                 </div>
                             </div>
                             <div class="account-type">
                                 <div class="type-icon"><i class="fas fa-hands-helping"></i></div>
                                 <div class="type-content">
                                     <strong>Volunteer</strong>
-                                    <p>Manage volunteer schedules, track hours, access training materials, and coordinate activities</p>
-                                </div>
-                            </div>
-                            <div class="account-type">
-                                <div class="type-icon"><i class="fas fa-user-shield"></i></div>
-                                <div class="type-content">
-                                    <strong>Administrator</strong>
-                                    <p>Full access to manage users, programs, donations, and generate reports</p>
+                                    <p>Manage schedules, track hours, access training materials</p>
                                 </div>
                             </div>
                         </div>
@@ -256,14 +228,10 @@
 
         <!-- Right Side - Info -->
         <div class="auth-info-section">
-            <div class="info-background">
-                <div class="info-overlay"></div>
-            </div>
-            
             <div class="info-content">
                 <div class="info-header">
                     <h2>Transform Lives Through Service</h2>
-                    <p>Join thousands of compassionate individuals making a real difference in communities across India</p>
+                    <p>Join thousands making a real difference across India</p>
                 </div>
 
                 <div class="info-stats">
@@ -279,53 +247,6 @@
                         <div class="stat-number">25+</div>
                         <div class="stat-label">Communities Served</div>
                     </div>
-                </div>
-
-                <div class="info-testimonials">
-                    <div class="testimonial active">
-                        <div class="testimonial-content">
-                            <p>"The dashboard makes it so easy to track my donations and see exactly how my contributions are making a difference."</p>
-                            <div class="testimonial-author">
-                                <div class="author-avatar">R</div>
-                                <div class="author-info">
-                                    <strong>Rajesh Kumar</strong>
-                                    <span>Regular Donor</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="testimonial">
-                        <div class="testimonial-content">
-                            <p>"As a volunteer, I love how organized the scheduling system is. It helps me coordinate my service hours efficiently."</p>
-                            <div class="testimonial-author">
-                                <div class="author-avatar">P</div>
-                                <div class="author-info">
-                                    <strong>Priya Sharma</strong>
-                                    <span>Active Volunteer</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="testimonial">
-                        <div class="testimonial-content">
-                            <p>"The transparency and detailed reporting give me confidence that my donations are being used effectively."</p>
-                            <div class="testimonial-author">
-                                <div class="author-avatar">A</div>
-                                <div class="author-info">
-                                    <strong>Amit Patel</strong>
-                                    <span>Monthly Supporter</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="testimonial-controls">
-                    <button class="testimonial-dot active" data-testimonial="0"></button>
-                    <button class="testimonial-dot" data-testimonial="1"></button>
-                    <button class="testimonial-dot" data-testimonial="2"></button>
                 </div>
 
                 <div class="info-features">
@@ -354,7 +275,7 @@
                 <button class="modal-close">&times;</button>
             </div>
             <div class="modal-body">
-                <p>Enter your email address and we'll send you instructions to reset your password.</p>
+                <p>Enter your email to receive reset instructions.</p>
                 <form id="forgotPasswordForm">
                     <div class="form-group">
                         <label for="forgot_email">Email Address</label>
@@ -367,588 +288,9 @@
         </div>
     </div>
 
-    <!-- Success/Error Messages -->
-    <div id="authMessages" class="auth-messages"></div>
-
     <!-- Scripts -->
     <script src="js/main.js"></script>
-    <script src="js/auth.js"></script>
-    <script src="js/login-page-fix.js"></script>
-    
-   <!-- <style>
-    /* Auth Page Specific Styles 
-    .auth-body {
-        margin: 0;
-        padding: 0;
-        min-height: 100vh;
-        background: var(--bg-light);
-        font-family: 'Poppins', sans-serif;
-    }*/
-
-    .auth-container {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        min-height: 100vh;
-    }
-
-    /* Form Section */
-    .auth-form-section {
-        background: white;
-        padding: 2rem;
-        display: flex;
-        flex-direction: column;
-        overflow-y: auto;
-    }
-
-    .auth-header {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin-bottom: 2rem;
-    }
-
-    .auth-logo {
-        display: flex;
-        align-items: center;
-        gap: 0.5rem;
-    }
-
-    .auth-logo .logo-img {
-        width: 40px;
-        height: 40px;
-        border-radius: 50%;
-    }
-
-    .auth-logo .logo-text {
-        font-size: 1.25rem;
-        font-weight: 700;
-        color: var(--primary-color);
-    }
-
-    .back-home {
-        display: flex;
-        align-items: center;
-        gap: 0.5rem;
-        color: var(--text-secondary);
-        text-decoration: none;
-        font-size: 0.9rem;
-        transition: var(--transition);
-    }
-
-    .back-home:hover {
-        color: var(--primary-color);
-    }
-
-    .auth-content {
-        flex: 1;
-        max-width: 500px;
-        margin: 0 auto;
-        width: 100%;
-    }
-
-    /* Tabs */
-    .auth-tabs {
-        display: flex;
-        background: var(--bg-light);
-        border-radius: var(--border-radius);
-        padding: 4px;
-        margin-bottom: 2rem;
-    }
-
-    .tab-btn {
-        flex: 1;
-        background: none;
-        border: none;
-        padding: 12px 24px;
-        border-radius: var(--border-radius);
-        font-weight: 500;
-        color: var(--text-secondary);
-        cursor: pointer;
-        transition: var(--transition);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 0.5rem;
-    }
-
-    .tab-btn.active {
-        background: white;
-        color: var(--primary-color);
-        box-shadow: var(--shadow-light);
-    }
-
-    /* Form Styles */
-    .tab-content {
-        display: none;
-    }
-
-    .tab-content.active {
-        display: block;
-    }
-
-    .form-header {
-        text-align: center;
-        margin-bottom: 2rem;
-    }
-
-    .form-header h1 {
-        font-size: 2rem;
-        color: var(--text-primary);
-        margin-bottom: 0.5rem;
-    }
-
-    .form-header p {
-        color: var(--text-secondary);
-        margin-bottom: 0;
-    }
-
-    .input-group {
-        position: relative;
-        display: flex;
-        align-items: center;
-    }
-
-    .input-group i {
-        position: absolute;
-        left: 16px;
-        color: var(--text-secondary);
-        z-index: 1;
-    }
-
-    .input-group input,
-    .input-group select {
-        padding-left: 48px;
-        width: 100%;
-    }
-
-    .password-toggle {
-        position: absolute;
-        right: 16px;
-        background: none;
-        border: none;
-        color: var(--text-secondary);
-        cursor: pointer;
-        transition: var(--transition);
-    }
-
-    .password-toggle:hover {
-        color: var(--primary-color);
-    }
-
-    .form-options {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin: 1rem 0;
-    }
-
-    .forgot-link {
-        color: var(--primary-color);
-        text-decoration: none;
-        font-size: 0.9rem;
-        transition: var(--transition);
-    }
-
-    .forgot-link:hover {
-        text-decoration: underline;
-    }
-
-    .auth-divider {
-        position: relative;
-        text-align: center;
-        margin: 2rem 0;
-        color: var(--text-secondary);
-    }
-
-    .auth-divider::before {
-        content: '';
-        position: absolute;
-        top: 50%;
-        left: 0;
-        right: 0;
-        height: 1px;
-        background: var(--border-light);
-        z-index: 0;
-    }
-
-    .auth-divider span {
-        background: white;
-        padding: 0 1rem;
-        position: relative;
-        z-index: 1;
-    }
-
-    .social-login {
-        margin-bottom: 2rem;
-    }
-
-    .social-btn {
-        width: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 0.75rem;
-        padding: 12px 24px;
-        border: 2px solid var(--border-light);
-        border-radius: var(--border-radius);
-        background: white;
-        color: var(--text-primary);
-        font-weight: 500;
-        cursor: pointer;
-        transition: var(--transition);
-    }
-
-    .social-btn:hover {
-        border-color: var(--primary-color);
-        color: var(--primary-color);
-        transform: translateY(-1px);
-    }
-
-    /* Password Strength */
-    .password-strength {
-        margin-top: 0.5rem;
-    }
-
-    .strength-bar {
-        width: 100%;
-        height: 4px;
-        background: var(--border-light);
-        border-radius: 2px;
-        overflow: hidden;
-    }
-
-    .strength-fill {
-        height: 100%;
-        width: 0%;
-        transition: all 0.3s ease;
-        border-radius: 2px;
-    }
-
-    .strength-text {
-        font-size: 0.85rem;
-        margin-top: 0.25rem;
-        color: var(--text-secondary);
-    }
-
-    .password-match {
-        position: absolute;
-        right: 16px;
-        color: var(--text-secondary);
-    }
-
-    /* Account Info */
-    .account-info {
-        margin-top: 2rem;
-        padding: 1.5rem;
-        background: var(--bg-light);
-        border-radius: var(--border-radius);
-    }
-
-    .account-types {
-        display: flex;
-        flex-direction: column;
-        gap: 1rem;
-        margin-top: 1rem;
-    }
-
-    .account-type {
-        display: flex;
-        gap: 1rem;
-        padding: 1rem;
-        background: white;
-        border-radius: var(--border-radius);
-        box-shadow: var(--shadow-light);
-    }
-
-    .type-icon {
-        flex-shrink: 0;
-        width: 40px;
-        height: 40px;
-        background: var(--gradient-primary);
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: white;
-    }
-
-    .type-content strong {
-        color: var(--text-primary);
-        display: block;
-        margin-bottom: 0.25rem;
-    }
-
-    .type-content p {
-        font-size: 0.9rem;
-        color: var(--text-secondary);
-        margin: 0;
-    }
-
-    /* Info Section */
-    .auth-info-section {
-        position: relative;
-        background: var(--gradient-primary);
-        color: white;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        padding: 3rem;
-    }
-
-    .info-background {
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background: url('../images/hero-bg.jpg') center/cover no-repeat;
-        z-index: 0;
-    }
-
-    .info-overlay {
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background: linear-gradient(135deg, rgba(255, 107, 53, 0.9), rgba(229, 85, 46, 0.9));
-        z-index: 1;
-    }
-
-    .info-content {
-        position: relative;
-        z-index: 2;
-        text-align: center;
-    }
-
-    .info-header h2 {
-        font-size: 2.5rem;
-        margin-bottom: 1rem;
-        line-height: 1.2;
-    }
-
-    .info-header p {
-        font-size: 1.1rem;
-        opacity: 0.9;
-        margin-bottom: 3rem;
-        max-width: 400px;
-        margin-left: auto;
-        margin-right: auto;
-    }
-
-    .info-stats {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 2rem;
-        margin-bottom: 3rem;
-    }
-
-    .info-stats .stat-item {
-        text-align: center;
-    }
-
-    .info-stats .stat-number {
-        font-size: 2rem;
-        font-weight: 700;
-        display: block;
-        margin-bottom: 0.5rem;
-    }
-
-    .info-stats .stat-label {
-        font-size: 0.9rem;
-        opacity: 0.8;
-    }
-
-    /* Testimonials */
-    .info-testimonials {
-        margin-bottom: 2rem;
-        min-height: 150px;
-        display: flex;
-        align-items: center;
-    }
-
-    .testimonial {
-        display: none;
-        animation: fadeIn 0.5s ease;
-    }
-
-    .testimonial.active {
-        display: block;
-    }
-
-    .testimonial-content p {
-        font-size: 1.1rem;
-        font-style: italic;
-        margin-bottom: 1.5rem;
-        max-width: 400px;
-        margin-left: auto;
-        margin-right: auto;
-    }
-
-    .testimonial-author {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 1rem;
-    }
-
-    .author-avatar {
-        width: 50px;
-        height: 50px;
-        background: rgba(255, 255, 255, 0.2);
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-weight: 600;
-        font-size: 1.2rem;
-    }
-
-    .author-info {
-        text-align: left;
-    }
-
-    .author-info strong {
-        display: block;
-        font-weight: 600;
-    }
-
-    .author-info span {
-        font-size: 0.9rem;
-        opacity: 0.8;
-    }
-
-    .testimonial-controls {
-        display: flex;
-        justify-content: center;
-        gap: 0.5rem;
-        margin-bottom: 2rem;
-    }
-
-    .testimonial-dot {
-        width: 12px;
-        height: 12px;
-        border: 2px solid white;
-        border-radius: 50%;
-        background: none;
-        cursor: pointer;
-        transition: var(--transition);
-    }
-
-    .testimonial-dot.active {
-        background: white;
-    }
-
-    .info-features {
-        display: flex;
-        justify-content: center;
-        gap: 2rem;
-    }
-
-    .feature {
-        display: flex;
-        align-items: center;
-        gap: 0.5rem;
-        font-size: 0.9rem;
-        opacity: 0.8;
-    }
-
-    /* Modal */
-    .modal {
-        display: none;
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background: rgba(0, 0, 0, 0.5);
-        z-index: 10000;
-        align-items: center;
-        justify-content: center;
-    }
-
-    .modal.active {
-        display: flex;
-    }
-
-    .modal-content {
-        background: white;
-        border-radius: var(--border-radius);
-        max-width: 400px;
-        width: 90%;
-        box-shadow: var(--shadow-medium);
-    }
-
-    .modal-header {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 1.5rem 1.5rem 1rem;
-        border-bottom: 1px solid var(--border-light);
-    }
-
-    .modal-close {
-        background: none;
-        border: none;
-        font-size: 1.5rem;
-        cursor: pointer;
-        color: var(--text-secondary);
-    }
-
-    .modal-body {
-        padding: 1.5rem;
-    }
-
-    /* Messages */
-    .auth-messages {
-        position: fixed;
-        top: 20px;
-        right: 20px;
-        z-index: 10001;
-    }
-
-    /* Responsive */
-    @media (max-width: 768px) {
-        .auth-container {
-            grid-template-columns: 1fr;
-        }
-
-        .auth-info-section {
-            order: -1;
-            min-height: 40vh;
-        }
-
-        .info-stats {
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1rem;
-        }
-
-        .info-header h2 {
-            font-size: 2rem;
-        }
-
-        .info-features {
-            flex-direction: column;
-            gap: 1rem;
-        }
-
-        .form-row {
-            grid-template-columns: 1fr;
-        }
-
-        .account-types {
-            gap: 0.5rem;
-        }
-
-        .account-type {
-            padding: 0.75rem;
-        }
-    }
-
-    @keyframes fadeIn {
-        from { opacity: 0; transform: translateY(10px); }
-        to { opacity: 1; transform: translateY(0); }
-    }
-    </style> -->
+    <script src="js/auth-enhanced.js"></script>
+    <script src="js/theme-switcher.js"></script>
 </body>
 </html>

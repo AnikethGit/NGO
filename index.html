@@ -7,11 +7,13 @@
     <meta name="description" content="Join Sai Seva Foundation in our mission to serve humanity through poor feeding programs, education support, medical camps, and disaster relief across India.">
     <link rel="stylesheet" href="css/common.css">
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="./css/hero-carousel-styles.css">
+    <link rel="stylesheet" href="css/hero-carousel-styles.css">
+    <!-- THEME COMPATIBILITY - NEW -->
+    <link rel="stylesheet" href="css/theme-compatibility.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <meta name="csrf-token" content="">
 </head>
@@ -141,53 +143,6 @@
         </button>
         </div>
     </section>
-    <!-- <section id="home" class="hero">
-        <div class="hero-background">
-            <div class="hero-overlay"></div>
-        </div>
-        <div class="container">
-            <div class="hero-content">
-                <div class="hero-text">
-                    <h1 class="hero-title">
-                        Transforming Lives Through 
-                        <span class="highlight">Service</span>
-                    </h1>
-                    <p class="hero-description">
-                        Join us in our mission to serve humanity and create positive change in communities across India. Together, we can build a better tomorrow for those who need it most.
-                    </p>
-                    <div class="hero-actions">
-                        <a href="donate.html" class="btn btn-primary btn-large">
-                            <i class="fas fa-heart"></i>
-                            Donate Now
-                        </a>
-                        <a href="#services" class="btn btn-outline btn-large">
-                            <i class="fas fa-info-circle"></i>
-                            Our Services
-                        </a>
-                    </div>
-                </div>
-                
-                <div class="hero-stats">
-                    <div class="stat-item">
-                        <div class="stat-number" data-target="50000">0</div>
-                        <div class="stat-label">Lives Touched</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-number" data-target="500">0</div>
-                        <div class="stat-label">Volunteers</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-number" data-target="25">0</div>
-                        <div class="stat-label">Projects</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-number" data-target="100000">0</div>
-                        <div class="stat-label">Meals Served</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section> -->
 
     <!-- About Section -->
     <section id="about" class="about">
@@ -510,56 +465,6 @@
         </div>
     </section>
 
-    <!-- Impact Section -->
-    <!-- <section class="impact">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Our Impact</h2>
-                <p class="section-subtitle">
-                    Making a measurable difference in communities
-                </p>
-            </div>
-
-            <div class="impact-grid">
-                <div class="impact-item">
-                    <div class="impact-icon">
-                        <i class="fas fa-utensils"></i>
-                    </div>
-                    <div class="impact-number" data-target="50000">0</div>
-                    <div class="impact-label">Meals Served</div>
-                    <div class="impact-description">Nutritious meals provided to families in need</div>
-                </div>
-
-                <div class="impact-item">
-                    <div class="impact-icon">
-                        <i class="fas fa-graduation-cap"></i>
-                    </div>
-                    <div class="impact-number" data-target="1000">0</div>
-                    <div class="impact-label">Students Supported</div>
-                    <div class="impact-description">Educational assistance and scholarships provided</div>
-                </div>
-
-                <div class="impact-item">
-                    <div class="impact-icon">
-                        <i class="fas fa-stethoscope"></i>
-                    </div>
-                    <div class="impact-number" data-target="5000">0</div>
-                    <div class="impact-label">Medical Treatments</div>
-                    <div class="impact-description">Free healthcare services and checkups conducted</div>
-                </div>
-
-                <div class="impact-item">
-                    <div class="impact-icon">
-                        <i class="fas fa-home"></i>
-                    </div>
-                    <div class="impact-number" data-target="25">0</div>
-                    <div class="impact-label">Communities Served</div>
-                    <div class="impact-description">Villages and communities reached through our programs</div>
-                </div>
-            </div>
-        </div>
-    </section> -->
-
     <!-- CTA Section -->
     <section class="cta">
         <div class="container">
@@ -672,7 +577,9 @@
 
     <!-- Scripts -->
     <script src="js/main.js"></script>
-    <script src="./js/hero-carousel-script.js"></script>
+    <script src="js/hero-carousel-script.js"></script>
+    <!-- THEME SWITCHER - NEW -->
+    <script src="js/theme-switcher.js"></script>
     <script>
         // Initialize CSRF token
         document.addEventListener('DOMContentLoaded', async function() {
@@ -682,6 +589,25 @@
                 document.querySelector('meta[name="csrf-token"]').setAttribute('content', data.csrf_token);
             } catch (error) {
                 console.error('Failed to initialize CSRF token:', error);
+            }
+            
+            // Initialize mobile menu
+            const hamburger = document.querySelector('.hamburger');
+            const navMenu = document.querySelector('.nav-menu');
+            
+            if (hamburger && navMenu) {
+                hamburger.addEventListener('click', () => {
+                    hamburger.classList.toggle('active');
+                    navMenu.classList.toggle('active');
+                });
+                
+                // Close menu when clicking on links
+                navMenu.querySelectorAll('a').forEach(link => {
+                    link.addEventListener('click', () => {
+                        hamburger.classList.remove('active');
+                        navMenu.classList.remove('active');
+                    });
+                });
             }
         });
     </script>
