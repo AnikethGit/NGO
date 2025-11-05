@@ -2,7 +2,7 @@
  * MINIMAL Fix Main JavaScript - Sai Seva Foundation
  * Simple working solution that fixes bugs without breaking existing functionality
  * 
- * @version 1.1.0
+ * @version 1.2.0 - HAMBURGER MENU FIXED
  * @author Sai Seva Foundation Development Team
  */
 
@@ -10,6 +10,7 @@ class NGOWebsite {
     constructor() {
         this.isInitialized = false;
         this.csrfToken = null;
+        this.mobileMenuOpen = false;
         this.init();
     }
 
@@ -23,6 +24,7 @@ class NGOWebsite {
             this.setupEventListeners();
             this.setupNavigation();
             this.setupAnimations();
+            this.addMobileMenuStyles(); // Add required styles
             
             // Initialize CSRF token (non-blocking)
             this.initializeCSRF();
@@ -34,6 +36,132 @@ class NGOWebsite {
             console.error('Error initializing website:', error);
             // Don't show error message to user for initialization issues
         }
+    }
+
+    /**
+     * Add mobile menu styles - FIXED VERSION
+     */
+    addMobileMenuStyles() {
+        if (document.getElementById('mobile-menu-fix-styles')) {
+            return; // Already added
+        }
+        
+        const style = document.createElement('style');
+        style.id = 'mobile-menu-fix-styles';
+        style.textContent = `
+            /* Mobile Menu Fix Styles */
+            @media (max-width: 768px) {
+                .hamburger {
+                    display: flex !important;
+                    flex-direction: column;
+                    justify-content: space-between;
+                    width: 25px;
+                    height: 18px;
+                    cursor: pointer;
+                    z-index: 1001;
+                }
+                
+                .hamburger span {
+                    width: 100%;
+                    height: 3px;
+                    background: var(--color-text, #333);
+                    transition: all 0.3s ease;
+                    transform-origin: center;
+                }
+                
+                .hamburger.active span:nth-child(1) {
+                    transform: rotate(45deg) translate(6px, 6px);
+                }
+                
+                .hamburger.active span:nth-child(2) {
+                    opacity: 0;
+                }
+                
+                .hamburger.active span:nth-child(3) {
+                    transform: rotate(-45deg) translate(6px, -6px);
+                }
+                
+                .nav-menu {
+                    position: fixed !important;
+                    top: 0;
+                    right: -100%;
+                    width: 280px;
+                    height: 100vh;
+                    background: white;
+                    box-shadow: -5px 0 15px rgba(0,0,0,0.1);
+                    transition: right 0.3s ease;
+                    z-index: 1000;
+                    padding: 80px 2rem 2rem;
+                    flex-direction: column !important;
+                    align-items: flex-start !important;
+                    gap: 0;
+                    overflow-y: auto;
+                }
+                
+                .nav-menu.active {
+                    right: 0;
+                }
+                
+                .nav-link {
+                    width: 100%;
+                    padding: 1rem 0;
+                    border-bottom: 1px solid #eee;
+                    color: #333;
+                    font-size: 1.1rem;
+                    text-decoration: none;
+                }
+                
+                .nav-link:hover {
+                    color: #f97316;
+                    padding-left: 1rem;
+                }
+                
+                .nav-actions {
+                    width: 100%;
+                    flex-direction: column !important;
+                    gap: 1rem;
+                    margin-top: 2rem;
+                    padding-top: 2rem;
+                    border-top: 1px solid #eee;
+                }
+                
+                .nav-actions .btn {
+                    width: 100%;
+                    text-align: center;
+                }
+                
+                body.menu-open {
+                    overflow: hidden;
+                }
+            }
+            
+            @media (min-width: 769px) {
+                .hamburger {
+                    display: none !important;
+                }
+                
+                .nav-menu {
+                    position: static !important;
+                    width: auto !important;
+                    height: auto !important;
+                    background: none !important;
+                    box-shadow: none !important;
+                    padding: 0 !important;
+                    flex-direction: row !important;
+                    align-items: center !important;
+                }
+                
+                .nav-actions {
+                    flex-direction: row !important;
+                    margin-top: 0 !important;
+                    padding-top: 0 !important;
+                    border-top: none !important;
+                }
+            }
+        `;
+        
+        document.head.appendChild(style);
+        console.log('Mobile menu styles added');
     }
 
     /**
@@ -84,7 +212,7 @@ class NGOWebsite {
     }
 
     setupEventListeners() {
-        // Mobile menu toggle
+        // Mobile menu toggle - FIXED VERSION
         this.setupMobileMenu();
         
         // Smooth scrolling for anchor links
@@ -100,33 +228,80 @@ class NGOWebsite {
         this.setupErrorHandling();
     }
 
+    /**
+     * FIXED: Mobile menu setup
+     */
     setupMobileMenu() {
         const hamburger = document.querySelector('.hamburger');
         const navMenu = document.querySelector('.nav-menu');
+        const body = document.body;
         
-        if (hamburger && navMenu) {
-            hamburger.addEventListener('click', () => {
-                const isExpanded = hamburger.getAttribute('aria-expanded') === 'true';
-                
-                hamburger.setAttribute('aria-expanded', !isExpanded);
-                navMenu.classList.toggle('active');
-                hamburger.classList.toggle('active');
-                
-                // Prevent body scroll when menu is open
-                document.body.classList.toggle('menu-open');
-            });
-            
-            // Close menu when clicking on a link
-            const navLinks = navMenu.querySelectorAll('.nav-link');
-            navLinks.forEach(link => {
-                link.addEventListener('click', () => {
-                    navMenu.classList.remove('active');
-                    hamburger.classList.remove('active');
-                    hamburger.setAttribute('aria-expanded', 'false');
-                    document.body.classList.remove('menu-open');
-                });
-            });
+        if (!hamburger || !navMenu) {
+            console.log('Hamburger or nav menu not found');
+            return;
         }
+        
+        console.log('Setting up mobile menu...');
+        
+        // FIXED: Hamburger click handler
+        hamburger.addEventListener('click', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            
+            console.log('Hamburger clicked');
+            
+            if (this.mobileMenuOpen) {
+                // Close menu
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('active');
+                body.classList.remove('menu-open');
+                this.mobileMenuOpen = false;
+                console.log('Menu closed');
+            } else {
+                // Open menu
+                hamburger.classList.add('active');
+                navMenu.classList.add('active');
+                body.classList.add('menu-open');
+                this.mobileMenuOpen = true;
+                console.log('Menu opened');
+            }
+        });
+        
+        // Close menu when clicking nav links
+        const navLinks = navMenu.querySelectorAll('.nav-link, .btn');
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                console.log('Nav link clicked - closing menu');
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('active');
+                body.classList.remove('menu-open');
+                this.mobileMenuOpen = false;
+            });
+        });
+        
+        // Close menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (this.mobileMenuOpen && !hamburger.contains(e.target) && !navMenu.contains(e.target)) {
+                console.log('Clicked outside - closing menu');
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('active');
+                body.classList.remove('menu-open');
+                this.mobileMenuOpen = false;
+            }
+        });
+        
+        // Close menu on window resize
+        window.addEventListener('resize', () => {
+            if (window.innerWidth > 768 && this.mobileMenuOpen) {
+                console.log('Resized to desktop - closing menu');
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('active');
+                body.classList.remove('menu-open');
+                this.mobileMenuOpen = false;
+            }
+        });
+        
+        console.log('Mobile menu setup complete');
     }
 
     setupSmoothScrolling() {
@@ -165,12 +340,12 @@ class NGOWebsite {
         // Setup volunteer form
         this.setupVolunteerForm();
         
-        // Setup file uploads (THIS WAS THE MISSING FUNCTION!)
+        // Setup file uploads
         this.setupFileUploads();
     }
 
     /**
-     * Setup file uploads - THE MISSING FUNCTION THAT CAUSED THE ERROR
+     * Setup file uploads
      */
     setupFileUploads() {
         const fileInputs = document.querySelectorAll('input[type="file"]');
@@ -626,6 +801,8 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // Make utils globally available
     window.utils = utils;
+    
+    console.log('🚀 NGO Website with FIXED mobile navigation loaded!');
 });
 
 // Handle page load
